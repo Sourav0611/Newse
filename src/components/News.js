@@ -32,7 +32,8 @@ export class News extends Component {
   }
 
   async updateNews() {
-    const url = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=f0bde2c1b5ab48f09097e437a173db93&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    this.props.setProgress(0);
+    const url = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -41,6 +42,7 @@ export class News extends Component {
       totalResults: parsedData.totalResults, // Set totalResults in the state
       loading: false,
     });
+    this.props.setProgress(100);
   }
 
   handleClickPrevious = async () => {
@@ -55,7 +57,7 @@ export class News extends Component {
 
   fetchMoreData = async ()=>{
     this.setState({page: this.state.page + 1});
-    const url = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=f0bde2c1b5ab48f09097e437a173db93&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    const url = `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();

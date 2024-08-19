@@ -1,4 +1,5 @@
 {
+  "homepage": "https://myusername.github.io/newse",
   "name": "newse",
   "version": "0.1.0",
   "private": true,
@@ -11,6 +12,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-router-dom": "^6.26.1",
     "react-scripts": "^5.0.1",
+    "react-top-loading-bar": "^2.3.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
