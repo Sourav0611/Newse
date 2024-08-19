@@ -2,61 +2,93 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <div className="container">
-      <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <nav
+      className="navbar navbar-expand-lg"
+      style={{
+        background: "linear-gradient(90deg, #141E30 0%, #243B55 100%)", // Gradient background
+        padding: "10px 20px",
+      }}
+    >
+      <div className="container-fluid">
         <a
           href="/"
-          className="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"
+          className="navbar-brand text-white"
+          style={{ fontSize: "1.8rem", fontWeight: "bold", letterSpacing: "2px" }}
         >
-          <h2>Newse</h2>
-          {/* Ensure the SVG sprite with id #bootstrap exists */}
-          <svg
-            className="bi me-2"
-            width="40"
-            height="32"
-            role="img"
-            aria-label="Bootstrap"
-          >
-            <use href="#bootstrap"></use>
-          </svg>
+          Newse
         </a>
 
-        <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li className="nav-item">
-            <a href="/business" className="nav-link px-2 link-body-emphasis">
-              Business
-            </a>
-          </li>
-          <li className="nav-item">
-            <a
-              href="/entertainment"
-              className="nav-link px-2 link-body-emphasis"
-            >
-              Entertainment
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="/general" className="nav-link px-2 link-secondary">
-              General
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="/health" className="nav-link px-2 link-body-emphasis">
-              Health
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="/science" className="nav-link px-2 link-body-emphasis">
-              Science
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="/technology" className="nav-link px-2 link-body-emphasis">
-              Technology
-            </a>
-          </li>
-        </ul>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <a
+                href="/business"
+                className="nav-link text-white"
+                style={{ marginRight: "15px" }}
+              >
+                Business
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="/entertainment"
+                className="nav-link text-white"
+                style={{ marginRight: "15px" }}
+              >
+                Entertainment
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="/general"
+                className="nav-link text-white"
+                style={{ marginRight: "15px" }}
+              >
+                General
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="/health"
+                className="nav-link text-white"
+                style={{ marginRight: "15px" }}
+              >
+                Health
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="/science"
+                className="nav-link text-white"
+                style={{ marginRight: "15px" }}
+              >
+                Science
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="/technology"
+                className="nav-link text-white"
+                style={{ marginRight: "15px" }}
+              >
+                Technology
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 }

@@ -1,38 +1,49 @@
-import NewsItems from "./components/Newsitem";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import "./App.css";
 import News from "./components/News";
 import LoadingBar from "react-top-loading-bar";
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-// f0bde2c1b6ab48f09097e437a173db93
+import "./App.css";
 
 function App() {
-  let apiKey = process.env.apiKey;
-  let state = {
-    progress: 0,
+  const apiKey = process.env.REACT_APP_API_KEY;
+  const [progress, setProgress] = useState(0);
+
+  const updateProgress = (newProgress) => {
+    setProgress(newProgress);
   };
-  const updateProgress = (progress) => {
-    this.setState({ progress: progress });
-  };
+
   return (
     <div>
       <Router>
         <Navbar />
-        <LoadingBar color="#f11946" progress={state.progress} />
+        <LoadingBar color="#f11946" progress={progress} />
         <Routes>
           <Route
             exact
             path="/"
             element={
               <News
-                setProgress={this.setProgress}
+                updateProgress={updateProgress}
                 key="general"
                 pageSize={6}
                 apiKey={apiKey}
                 country="in"
-                category="General"
+                category="general"
+              />
+            }
+          />
+          <Route
+            exact
+            path="/newse"
+            element={
+              <News
+                updateProgress={updateProgress}
+                key="general"
+                pageSize={6}
+                apiKey={apiKey}
+                country="in"
+                category="general"
               />
             }
           />
@@ -41,12 +52,12 @@ function App() {
             path="/business"
             element={
               <News
-                setProgress={this.setProgress}
+                updateProgress={updateProgress}
                 key="business"
                 pageSize={6}
                 apiKey={apiKey}
                 country="in"
-                category="Business"
+                category="business"
               />
             }
           />
@@ -55,12 +66,12 @@ function App() {
             path="/entertainment"
             element={
               <News
-                setProgress={this.setProgress}
+                updateProgress={updateProgress}
                 key="entertainment"
                 pageSize={6}
                 apiKey={apiKey}
                 country="in"
-                category="Entertainment"
+                category="entertainment"
               />
             }
           />
@@ -69,12 +80,12 @@ function App() {
             path="/general"
             element={
               <News
-                setProgress={this.setProgress}
+                updateProgress={updateProgress}
                 key="general"
                 pageSize={6}
                 apiKey={apiKey}
                 country="in"
-                category="General"
+                category="general"
               />
             }
           />
@@ -83,12 +94,12 @@ function App() {
             path="/health"
             element={
               <News
-                setProgress={this.setProgress}
+                updateProgress={updateProgress}
                 key="health"
                 pageSize={6}
                 apiKey={apiKey}
                 country="in"
-                category="Health"
+                category="health"
               />
             }
           />
@@ -97,12 +108,12 @@ function App() {
             path="/science"
             element={
               <News
-                setProgress={this.setProgress}
+                updateProgress={updateProgress}
                 key="science"
                 pageSize={6}
                 apiKey={apiKey}
                 country="in"
-                category="Science"
+                category="science"
               />
             }
           />
@@ -111,12 +122,12 @@ function App() {
             path="/technology"
             element={
               <News
-                setProgress={this.setProgress}
+                updateProgress={updateProgress}
                 key="technology"
                 pageSize={6}
                 apiKey={apiKey}
                 country="in"
-                category="Technology"
+                category="technology"
               />
             }
           />
